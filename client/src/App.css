@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-logo {
@@ -26,6 +26,38 @@
 
 .App-link {
   color: #61dafb;
+}
+
+header {
+  background-color:  #9B5400;
+  height: 140px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  
+}
+.apph1 {
+  margin: 0;
+  padding-top: 12px;
+  text-align: center;
+  color: white;
+  font-family: 'Maitree';
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 66px;
+}
+input {
+  width: 427px;
+  height: 45px;
+  border: 2px solid #FFFFFF;
+  border-radius: 10px;
+  background-color: #9B5400;
+}
+.wrapper {
+  display: flex;
+
 }
 
 @keyframes App-logo-spin {
