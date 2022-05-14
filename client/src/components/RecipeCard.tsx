@@ -18,7 +18,14 @@ export const StyledRecipe = styled.div`
         
 `
 
-export const Recipes = () => {
+
+
+
+
+
+
+
+// export const Recipes = () => {
     // const allRecipes = getAllRecipes()
     // fetchfunction
 
@@ -46,4 +53,4 @@ export const Recipes = () => {
     //         <h2>ingredients {recipe.ingredients.length} </h2>
     //     </StyledRecipe>)}
     // </ul>
-}
+// }

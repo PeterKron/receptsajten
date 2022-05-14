@@ -30,13 +30,21 @@
 
 header {
   background-color:  #9B5400;
-  height: 140px;
+  height: 150px;
   margin-bottom: 40px;
   display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
-  
+}
+.welcome {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cake {
+  position: absolute;
+  left: 50px
 }
 .apph1 {
   margin: 0;
@@ -54,10 +62,22 @@ input {
   border: 2px solid #FFFFFF;
   border-radius: 10px;
   background-color: #9B5400;
+  color: #FFFFFF;
+  font-family: 'Maitree';
+  font-size: 20px;
+  padding-left: 10px;
+  outline: none;
+}
+.searchicon {
+  margin-right: 10px;
+}
+.searchblock {
+  display: flex;
+  align-items: center;
 }
 .wrapper {
   display: flex;
-
+  /* justify-content: center; */
 }
 
 @keyframes App-logo-spin {

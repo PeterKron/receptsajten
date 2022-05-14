@@ -4,8 +4,8 @@ export interface RecipeType {
     title: String,
     description: String,
     imageUrl: string,
-    timeInMins: React.ReactNode,
-    ratings: Array<React.ReactNode>,
+    timeInMins: number,
+    ratings: Array<number>,
     category: Array<String>,
     ingredients: Array<IngredientType>,
     instructions: Array<String>
@@ -14,8 +14,8 @@ export interface RecipeType {
 
 export interface IngredientType {
     ingredient: String,
-    amount: React.ReactNode,
-    // amount: Number,
+    // amount: React.ReactNode,
+    amount: number,
     unit: String 
 }
 

@@ -1,9 +1,12 @@
 import express  from "express";
 import cors from 'cors'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 
-mongoose.connect('mongodb://localhost:27017/receptsajten')
+mongoose.connect(`mongodb+srv://${process.env.USER2}:${process.env.PASS}@recipedb.4sg5r.mongodb.net/receptsajten`)
 
 import recipeRouter from './routes/recipe'
 import categoryRouter from './routes/category'

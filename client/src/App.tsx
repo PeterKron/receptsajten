@@ -10,10 +10,17 @@ function App() {
   return (
     <div className="App">
       
-      <header>https://github.com/PeterKron/receptsajten/blob/master/client/src/assets/cake.png
-        <img src="C:\users\peter\Documents\ITHS\fullstackutveckling\receptsajten\client\src\assets\cake.png" width={50} height={50} alt="" />
-        <h1 className='apph1'>Välkommen till Sötsuget.nu</h1>
-        <input type="text" />
+      <header>
+        <img className='cake' 
+        src="./cake.png" 
+         alt="" />
+        <div className='welcome'>
+          <h1 className='apph1'>Välkommen till Sötsuget.nu</h1>
+          <div className='searchblock'>
+            <img className='searchicon' src="./search.png" alt=""/>
+            <input type="text" placeholder='Vilket recept är du sugen på idag?'/> 
+          </div>
+        </div>
       </header>
       
       <div className='wrapper'>

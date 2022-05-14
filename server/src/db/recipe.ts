@@ -17,3 +17,15 @@ export const getRecipeBySearch = async (title: String) => {
     })
     return foundRecipe
 }
+
+export const postRatingOnRecipe = async (recipeId: String, rating: Number) => {
+    const recipe = await RecipeModel.findById(recipeId)
+        if (!recipe){
+            throw '404'
+        }else {
+            recipe.ratings.push(rating)
+            await recipe.save()
+            return rating;
+        }
+     // await RecipeModel.updateOne({ _id: recipeId }, { $push: { ratings: rating } })
+}
