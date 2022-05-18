@@ -1,6 +1,7 @@
 import React from "react"
 
 export interface RecipeType {
+    _id?: String,
     title: String,
     description: String,
     imageUrl: string,

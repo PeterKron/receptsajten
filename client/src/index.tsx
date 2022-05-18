@@ -4,9 +4,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Categories from './routes/Categories';
+import Categories from './routes/RecipesInCategory';
 // import EttRecept from './routes/SingleRecipe';
 // import {hej} from './routes/SingleRecipe'
+import { SingleRecipe } from './components/SingleRecipe';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,9 +16,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App/>}/>
-       <Route path='Kategorinamndynamiskt' element={<Categories/>}/> 
-      {/* <Route path={hej} element={<EttRecept/>}/>  */}
+        <Route path="/" element={<App/>}>
+          <Route path='category/:categoryname' element={<Categories/>}/> 
+          <Route path='recipe/:recipeId' element={<SingleRecipe/>}/> 
+        </Route> 
        </Routes> 
     </BrowserRouter> 
   </React.StrictMode>

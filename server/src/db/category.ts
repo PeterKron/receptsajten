@@ -7,11 +7,10 @@ export const getCategories = async () => {
     // const recipes = await RecipeModel.find()
     // const categories = recipes.map((recipe) => recipe.category)
     // return categories.flat()
-
-    const recipes = await RecipeModel.find()
-    return recipes.flatMap((recipe) => recipe.category)
     
-
+    const categories = await RecipeModel.find()
+    return categories.flatMap((recipe) => recipe.category)
+    
     // const recipes = await RecipeModel.find()
     // const categories = recipes.map((recipe) => recipe.category)
     // const katarray = []

@@ -2,9 +2,9 @@ import axios from "axios"
 import React, { useState, useEffect, ReactNode } from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import styled from 'styled-components'
+import { Link } from "react-router-dom"
 
-
-const StyledRecipe = styled.div`
+export const StyledRecipes = styled.div`
     background-color: white;
     display: flex;
     /* align-items: center; */
@@ -85,28 +85,26 @@ export const Recipes = () => {
 
     return <ul>
         {allRecipes.map((recipe: RecipeType, index) => 
-        <StyledRecipe key={index}>
-            <img src={recipe.imageUrl} alt="" width={196} height={196}/>
-            <div>
-                <div className="title">
-                    <h1 className="h1recipe">{recipe.title}</h1>
-                    <div className="ratings">
-                        <h1 className="ratingnumber">{getRating(recipe.ratings)}</h1>
-                        <img className="ratingstar" src="./star.png" alt=""/>
+        <Link to={`/recipe/${recipe._id}`}>
+            <StyledRecipes key={index} >
+                <img src={recipe.imageUrl} alt="" width={196} height={196}/>
+                <div>
+                    <div className="title">
+                        <h1 className="h1recipe">{recipe.title}</h1>
+                        <div className="ratings">
+                            <h1 className="ratingnumber">{getRating(recipe.ratings)}</h1>
+                            <img className="ratingstar" src="./star.png" alt=""/>
+                        </div>
                     </div>
+                    <div className="smallinfo">
+                        <h4>{recipe.timeInMins} MIN | {recipe.ingredients.length} Ingredienser</h4>
+                    </div>
+                    <div className="divider"></div>
+                    <p>{recipe.description}</p>
                 </div>
-                <div className="smallinfo">
-                    <h4>{recipe.timeInMins} MIN | {recipe.ingredients.length} Ingredienser</h4>
-                </div>
-                <div className="divider"></div>
-                <p>{recipe.description}</p>
-            </div>
-            {/* <div className="ratings">
-                <img src="./star.png" alt=""/>
-                <h1 className="ratingnumber">{getRating(recipe.ratings)}</h1>
-            </div> */}
-
-        </StyledRecipe>)}
+            </StyledRecipes>
+        </Link>
+        )}
     </ul>
 }
 

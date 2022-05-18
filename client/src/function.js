@@ -28,3 +28,19 @@ function containsElement(arr) {
     )
     return ArrayofAmounts
 }
+
+
+
+
+    // const allRecipes = getAllRecipes()
+    // // fetchfunction
+
+    // useEffect(()=>{
+    //     const getRecipes = async () => {
+    //         const recipes = await axios.get("http://localhost:3100/recipes/")
+    //         setRecipes(recipes.data) 
+    //     }
+    //     getRecipes()
+    // }, [])
+
+    // // kalla på fetch function 

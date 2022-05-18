@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Link } from 'react-router-dom';
-// hej = strängen dvs typ titeln på receptet
-import {hej} from './routes/SingleRecipe'
+import { Link, Outlet } from 'react-router-dom';
 import { Recipes } from './components/RecipeList';
 import { Category } from './components/CategoryList';
 
@@ -11,9 +9,11 @@ function App() {
     <div className="App">
       
       <header>
-        <img className='cake' 
-        src="./cake.png" 
-         alt="" />
+        <Link to="/" className='cake'>
+          <img className='ckeS' 
+          src="./cake.png" 
+          alt="" />
+        </Link>
         <div className='welcome'>
           <h1 className='apph1'>Välkommen till Sötsuget.nu</h1>
           <div className='searchblock'>
@@ -24,18 +24,11 @@ function App() {
       </header>
       
       <div className='wrapper'>
-      {/* <Link to="/Kategorinamndynamiskt"> */}
-        {/* här i ligger alla categorierrrrrr? */}
-        {/* Category.. */}
-      {/* </Link> */}
-      {/* <Link to={hej}> */}
-        {/* här ligger listan med alla recept? */}
-        {/* Receptet */}
-      {/* </Link> */}
-      
-      <Recipes />
-      <Category/>
+      <Outlet />
+        {/* <Recipes /> */}
+        <Category/>
 
+      {/* </Outlet> */}
       </div>
     </div>
   );
