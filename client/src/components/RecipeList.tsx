@@ -1,5 +1,5 @@
 import axios from "axios"
-import React, { useState, useEffect, ReactNode } from "react"
+import { useState, useEffect} from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import styled from 'styled-components'
 import { Link } from "react-router-dom"

@@ -1,7 +1,5 @@
-import React from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
-import { RecipeList } from './components/RecipeList';
 import { Category } from './components/CategoryList';
 
 function App() {
@@ -23,7 +21,6 @@ function App() {
       
       <div className='wrapper'>
       <Outlet />
-        {/* <Recipes /> */}
         <Category/>
 
       {/* </Outlet> */}
