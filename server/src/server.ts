@@ -21,7 +21,7 @@ app.use('/recipes', recipeRouter)
 app.use('/categories', categoryRouter)
 app.use(commentRouter)
 
-
+// VAFANFA 
 app.listen(port, () => {
     return console.log(`Server is listening on ${port}`);
   });
