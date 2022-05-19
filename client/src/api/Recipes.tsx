@@ -2,7 +2,7 @@ import axios from "axios"
 
 
 export const getRecipes = async () => {
-    const recipes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/recipes/`)
+    const recipes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/recipes`)
     return recipes.data 
 }
 export const getOneRecipe = async (recipeId : any) => {
