@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import axios from "axios"
 import { useState, useEffect } from "react"
 import {ContainsElement2} from '../function'
 import { getCategories } from '../api/Categories'

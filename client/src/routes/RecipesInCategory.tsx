@@ -1,5 +1,5 @@
-import axios from "axios"
-import React, { useState, useEffect, ReactNode } from "react"
+
+import { useState, useEffect} from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import { useParams, Link } from "react-router-dom"
 import { StyledRecipes } from "../components/RecipeList"
