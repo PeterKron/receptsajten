@@ -78,7 +78,7 @@ export const RecipeList = () => {
     const [ allRecipes, setRecipes] = useState<RecipeType[]>([])
     useEffect(()=>{
         const getRecipes = async () => {
-            const recipes = await axios.get("http://localhost:3100/recipes/")
+            const recipes = await axios.get("http://localhost:3100/recipes")
             setRecipes(recipes.data) 
         }
         getRecipes()
