@@ -17,9 +17,9 @@ const port = process.env.PORT || 3100
 app.use(express.json())
 app.use(cors())
 
-app.use('/recipes', recipeRouter)
+app.use(recipeRouter)
 app.use('/categories', categoryRouter)
-app.use(commentRouter)
+app.use('comments',commentRouter)
 
 app.listen(port, () => {
     return console.log(`Server is listening on ${port}`);
