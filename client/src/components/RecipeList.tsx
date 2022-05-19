@@ -78,7 +78,7 @@ export const RecipeList = () => {
     const [ allRecipes, setRecipes] = useState<RecipeType[]>([])
     useEffect(()=>{
         const getRecipes = async () => {
-            const recipes = await axios.get("http://localhost:3100/recipes")
+            const recipes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/recipes`)
             setRecipes(recipes.data) 
         }
         getRecipes()
