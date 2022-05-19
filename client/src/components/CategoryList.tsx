@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 export const StyledCategory = styled.div`
     background-color: #9B5400;
     width: 250px;
-    height: 891px;
+    height: 100vw;
     border: 1px solid #FFFFFF;
     position: absolute;
     top: 150px;
@@ -17,7 +17,6 @@ export const StyledCategory = styled.div`
     color: #FFFFFF;
     font-family: 'Maitree';
     font-size: 32px;
-    /* margin-left: 400px; */
 `
 
 export const Category = () => {

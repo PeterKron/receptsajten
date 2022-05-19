@@ -29,6 +29,7 @@ export const StyledRecipes = styled.div`
         font-weight: bold;
     }
     h1 {
+        /* font-size: 34px; */
         margin-top: 20px;
     }
     .smallinfo {
@@ -40,17 +41,15 @@ export const StyledRecipes = styled.div`
     p {
         font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
         font-style: italic;
-        /* font-weight: bold; */
         font-size: 15px;
         line-height: 18px;
-        margin-top: 6px;
     }
     .divider {
         background-color: black;
         width: 684px;
         height: 2px;
         border-radius: 500px;
-        margin-left: 16px;
+        margin: 5px 0px 10px 16px;
     }
     .title {
         display: flex;
@@ -70,9 +69,12 @@ export const StyledRecipes = styled.div`
     .ratingstar {
         margin-left: 5px;
     }
+    .textcontent {
+        width: 700px;
+    }
 `
 
-export const Recipes = () => {
+export const RecipeList = () => {
     const [ allRecipes, setRecipes] = useState<RecipeType[]>([])
     useEffect(()=>{
         const getRecipes = async () => {
@@ -88,7 +90,7 @@ export const Recipes = () => {
         <Link to={`/recipe/${recipe._id}`}>
             <StyledRecipes key={index} >
                 <img src={recipe.imageUrl} alt="" width={196} height={196}/>
-                <div>
+                <div className="textcontent">
                     <div className="title">
                         <h1 className="h1recipe">{recipe.title}</h1>
                         <div className="ratings">

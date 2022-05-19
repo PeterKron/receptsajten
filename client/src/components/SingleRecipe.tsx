@@ -7,11 +7,8 @@ import { getOneRecipe } from '../api/Recipes'
 
 export const StyledRecipe = styled.div`
     background-color: white;
-    /* display: flex; */
-    /* align-items: center; */
     width: 967px;
-    height: 736px;
-    /* border: 5px solid #9B5400; */
+    border: 2px solid #9B5400;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     margin-left: 150px;
     border-radius: 5px;
@@ -20,20 +17,76 @@ export const StyledRecipe = styled.div`
         width: 884px;
         height: 3px;
         border-radius: 500px;
-        margin-left: 16px;
+        margin: 15px 0px 15px 16px;
     }
     img {
         object-fit: contain;
-        margin-left: 28px;
-        margin-top: 20px;
-        /* align-self: flex-end; */
     }
     .header {
         display: flex;
+        justify-content: space-between;
     }
     .wrapper2{
-        padding: 10px 25px;
-    } 
+        padding: 25px;
+    }
+    input {
+        border: 2px solid #9B5400;
+        background-color: #FFFFFF;
+        margin-bottom: 5px;
+        color: #000000;
+        text-align: start;
+    }
+    textarea {
+        width: 750px;
+        height: 250px;
+        border: 2px solid #9B5400;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        font-family: 'Maitree';
+        font-size: 20px;
+        padding-left: 10px;
+        outline: none;
+        resize: none;
+    }
+    button {
+        width: 125px;
+        height: 45px;
+        background-color: #9B5400;
+        border: 1px solid #FFFFFF;
+        color: #FFFFFF;
+        border-radius: 10px;
+        font-family: 'Maitree';
+        font-size: 20px;
+        padding-left: 10px;
+        outline: none;
+        margin-left: 20px;
+        align-self: flex-end;
+    }
+    h1, h3, h4 {
+        font-family: 'Spectral SC';
+        font-weight: bold;
+        margin: 0;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    p {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', sans-serif;
+        font-style: italic;
+    }
+    .titleandingredients {
+        width: 500px;
+    }
+    .ratings {
+        display: flex;
+        align-items: flex-start;
+    }
+    .ratingstar {
+        margin: 0px 5px;
+    }
+    .commentfield {
+        display: flex;
+    }
         
 `
 
@@ -52,44 +105,43 @@ export const SingleRecipe = () => {
     <StyledRecipe key={index}>
         <div className="wrapper2">
             <div className='header'>
-                <div>
+                <div className='titleandingredients'>
                     <h1>{recipe.title}</h1>
-                    <h5>{recipe.timeInMins} MINUTER</h5>
+                    <div className="ratings">
+                        <h3>{getRating(recipe.ratings)}</h3>
+                        <img className="ratingstar" src="../star.png" alt=""/>
+                        <h3>| {recipe.timeInMins} minuter</h3>
+                    </div>
                     <p>{recipe.description}</p>
-                    <h2>Ingredienser</h2>
+                    <h3>Ingredienser</h3>
                     {recipe.ingredients.map((ingredient) => <p>{ingredient.amount} {ingredient.unit} {ingredient.ingredient}</p>)}
                 </div>
             
-                <div className="ratings">
-                    <h1 className="ratingnumber">{getRating(recipe.ratings)}</h1>
-                    <img className="ratingstar" src="../star.png" alt=""/>
-                </div>
-                <img src={recipe.imageUrl} alt="" width={396} height={396}/>
+
+                <img src={recipe.imageUrl} alt="" width={370} height={370}/>
             </div>
             
             <div className="divider"></div>
 
-            <h2>GÖR SÅHÄR</h2>
+            <h3>GÖR SÅHÄR</h3>
             {recipe.instructions.map((instruction) => <p>{instruction}</p>)}
+            
+            <div className="divider"></div>
+            <h3>Vad tyckte du om receptet! Rösta här!</h3>
+            <p>*****</p>
+
+            <h3>ska du kommentera något dumt? isåfall gör det här</h3>
+
+            <input type="text" placeholder='Namn'/>
+            <div className='commentfield'>
+            <textarea placeholder='Skriv en text'/>
+            <button>Skicka</button>
+            </div>
+
         </div>
     </StyledRecipe>)} 
     </section>
 }
-{/* <img src={recipe.imageUrl} alt="" width={196} height={196}/>
-<div>
-  <div className="title">
-      <h1 className="h1recipe">{recipe.title}</h1>
-      <div className="ratings">
-          <h1 className="ratingnumber">{getRating(recipe.ratings)}</h1>
-          <img className="ratingstar" src="../star.png" alt=""/>
-      </div>
-  </div>
-  <div className="smallinfo">
-      <h4>{recipe.timeInMins} MIN | {recipe.ingredients.length} Ingredienser</h4>
-  </div>
-  <div className="divider"></div>
-  <p>{recipe.description}</p>
-</div> */}
         
 function getRating(ratings : Array<number>) {
     let sum = 0;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
-import { Recipes } from './components/RecipeList';
+import { RecipeList } from './components/RecipeList';
 import { Category } from './components/CategoryList';
 
 function App() {
@@ -10,12 +10,10 @@ function App() {
       
       <header>
         <Link to="/" className='cake'>
-          <img className='ckeS' 
-          src="./cake.png" 
-          alt="" />
+          <img src="./cake.png" alt="animatedcake" />
         </Link>
         <div className='welcome'>
-          <h1 className='apph1'>Välkommen till Sötsuget.nu</h1>
+          <h2>Välkommen till Sötsuget.nu</h2>
           <div className='searchblock'>
             <img className='searchicon' src="./search.png" alt=""/>
             <input type="text" placeholder='Vilket recept är du sugen på idag?'/> 

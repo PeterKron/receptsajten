@@ -5,8 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Categories from './routes/RecipesInCategory';
-// import EttRecept from './routes/SingleRecipe';
-// import {hej} from './routes/SingleRecipe'
+import { RecipeList } from './components/RecipeList';
 import { SingleRecipe } from './components/SingleRecipe';
 
 const root = ReactDOM.createRoot(
@@ -17,6 +16,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App/>}>
+          <Route path="/" element={<RecipeList/>}/>
           <Route path='category/:categoryname' element={<Categories/>}/> 
           <Route path='recipe/:recipeId' element={<SingleRecipe/>}/> 
         </Route> 
