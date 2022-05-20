@@ -27,5 +27,4 @@ export const postRatingOnRecipe = async (recipeId: String, rating: Number) => {
             await recipe.save()
             return rating;
         }
-     // await RecipeModel.updateOne({ _id: recipeId }, { $push: { ratings: rating } })
 }

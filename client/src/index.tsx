@@ -15,10 +15,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App/>}>
-          <Route path="/" element={<RecipeList/>}/>
-          <Route path='category/:categoryname' element={<Categories/>}/> 
+        <Route path='/' element={<App/>}>
+          <Route path='/' element={<RecipeList/>}/>
+          {/* <Route path='recipe/search/:search' element={<RecipeList/>}/> */}
           <Route path='recipe/:recipeId' element={<SingleRecipe/>}/> 
+          <Route path='category/:categoryname' element={<Categories/>}/> 
+          {/* <Route path='category/:categoryname/:search' element={<Categories/>}/>  */}
         </Route> 
        </Routes> 
     </BrowserRouter> 

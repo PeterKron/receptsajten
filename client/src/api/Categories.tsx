@@ -6,12 +6,12 @@ export const getCategories = async () => {
     return categories.data
 }
 
-export const getRecipesByCategory = async (categoryName : any) => {
+export const getRecipesByCategory = async (categoryName : string) => {
     const categories = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/categories/${categoryName}/recipes`)
     return categories.data
 }
 
-export const searchRecipeInOneCategory = async (categoryName : any, search : any) => {
-    const categories = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/categories/${categoryName}${search}`)
+export const searchRecipeInOneCategory = async (categoryName : string, search : string) => {
+    const categories = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/categories/${categoryName}/${search}`)
     return categories.data
 }

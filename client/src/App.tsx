@@ -1,8 +1,10 @@
 import './App.css';
 import { Link, Outlet } from 'react-router-dom';
 import { Category } from './components/CategoryList';
+import { Input } from './components/Input';
 
-function App() {
+const App = () => {
+
   return (
     <div className="App">
       
@@ -14,7 +16,9 @@ function App() {
           <h2>Välkommen till Sötsuget.nu</h2>
           <div className='searchblock'>
             <img className='searchicon' src="./search.png" alt=""/>
-            <input type="text" placeholder='Vilket recept är du sugen på idag?'/> 
+            {/* <Input onChange = { (event :any) => SendText(event.target.value) }/> */}
+            {/* <Input onChange = { (event :any) => searchtext = event.target.value }/> */}
+            {/* <input type="text" placeholder='Vilket recept är du sugen på idag?'/>  */}
           </div>
         </div>
       </header>

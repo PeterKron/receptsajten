@@ -19,7 +19,7 @@ router.get('/search/:query', async (req, res) => {
 })
 
 router.post('/:recipeId/ratings', async (req, res) => {
-    const postedRating = await postRatingOnRecipe(req.params.recipeId, req.body)
+    const postedRating = await postRatingOnRecipe(req.params.recipeId, req.body.rating)
     res.status(200).json(postedRating)
 })
 

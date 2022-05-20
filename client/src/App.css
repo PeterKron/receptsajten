@@ -26,18 +26,6 @@ h2 {
   font-size: 40px;
   line-height: 66px;
 }
-input {
-  width: 427px;
-  height: 45px;
-  border: 2px solid #FFFFFF;
-  border-radius: 10px;
-  background-color: #9B5400;
-  color: #FFFFFF;
-  font-family: 'Maitree';
-  font-size: 20px;
-  padding-left: 10px;
-  outline: none;
-}
 .searchicon {
   margin-right: 10px;
 }

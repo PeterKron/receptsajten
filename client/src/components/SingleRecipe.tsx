@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
+import { Params, useParams } from "react-router-dom"
 import { RecipeType } from '../interfaces/interfaces'
-import { getOneRecipe } from '../api/Recipes'
+import { getOneRecipe, postRating } from '../api/Recipes'
+import { Rating } from 'react-simple-star-rating'
 
 export const StyledRecipe = styled.div`
     background-color: white;
@@ -29,11 +30,18 @@ export const StyledRecipe = styled.div`
         padding: 25px;
     }
     input {
+        width: 427px;
+        height: 45px;
         border: 2px solid #9B5400;
         background-color: #FFFFFF;
         margin-bottom: 5px;
         color: #000000;
         text-align: start;
+        border-radius: 10px;
+        font-family: 'Maitree';
+        font-size: 20px;
+        padding-left: 10px;
+        outline: none; 
     }
     textarea {
         width: 750px;
@@ -90,8 +98,16 @@ export const StyledRecipe = styled.div`
 `
 
 export const SingleRecipe = () => {
-    let params = useParams()
+
+    let params: any = useParams()
     const [ oneRecipe, setRecipe] = useState<RecipeType[]>([])
+    const [rating, setRating] = useState(0)
+
+    const handleRating = (rate: number) => {
+        let rating = rate / 20
+        setRating(rate)
+        postRating(params.recipeId, {rating: rating})
+    }
   
     useEffect(()=>{
         getOneRecipe(`${params.recipeId}`).then(recipes => {setRecipe(recipes)})
@@ -127,7 +143,7 @@ export const SingleRecipe = () => {
             
             <div className="divider"></div>
             <h3>Vad tyckte du om receptet! Rösta här!</h3>
-            <p>*****</p>
+            <Rating onClick={handleRating} ratingValue={rating} /* Available Props */ />
 
             <h3>ska du kommentera något dumt? isåfall gör det här</h3>
 

@@ -1,8 +1,10 @@
-import axios from "axios"
+import { getRecipes, searchRecipes } from "../api/Recipes"
 import { useState, useEffect} from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import styled from 'styled-components'
 import { Link } from "react-router-dom"
+import { useParams } from "react-router"
+import { Input } from "./Input"
 
 export const StyledRecipes = styled.div`
     background-color: white;
@@ -73,22 +75,34 @@ export const StyledRecipes = styled.div`
         width: 700px;
     }
 `
+const StyledInputField = styled.div `
+    margin-left: 100px;
+    /* position: absolute;
+    top: 78px;
+    left: 517px; */
+
+    `
 
 export const RecipeList = () => {
+    // let params = useParams()
+    const [ search, setSearch] = useState('')
     const [ allRecipes, setRecipes] = useState<RecipeType[]>([])
     useEffect(()=>{
-        const getRecipes = async () => {
-            const recipes = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/recipes`)
-            setRecipes(recipes.data) 
+        if (search.length > 0){
+            searchRecipes(`${search}`).then(recipes => {setRecipes(recipes)})
+        }else {
+            getRecipes().then(recipes => {setRecipes(recipes)})
         }
-        getRecipes()
-    }, [])
+    }, [allRecipes])
     
-
-    return <ul>
+    return <div>
+    <StyledInputField>
+        <Input onChange={(event: any) => setSearch(event.target.value)}/>
+    </StyledInputField>
+    <ul>
         {allRecipes.map((recipe: RecipeType, index) => 
-        <Link to={`/recipe/${recipe._id}`}>
-            <StyledRecipes key={index} >
+        <Link to={`/recipe/${recipe._id}`} key={index}>
+            <StyledRecipes>
                 <img src={recipe.imageUrl} alt="" width={196} height={196}/>
                 <div className="textcontent">
                     <div className="title">
@@ -108,6 +122,7 @@ export const RecipeList = () => {
         </Link>
         )}
     </ul>
+</div>
 }
 
 
