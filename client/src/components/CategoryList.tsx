@@ -18,6 +18,7 @@ export const StyledCategory = styled.div`
     font-size: 32px;
     .active {
         font-style: italic;
+        font-weight: bold;
     }
 `
 

@@ -19,7 +19,7 @@ export const RecipeList = (texts: any) => {
     }, [allRecipes])
     
     return <div>
-    <Input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
+    <Input placeholder={`Sök recept`} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
     <ul>
         {allRecipes.map((recipe: RecipeType, index) => 
         <Link to={`/recipe/${recipe._id}`} key={index}>

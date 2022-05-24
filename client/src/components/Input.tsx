@@ -1,12 +1,20 @@
 import styled from "styled-components";
 
+const StyledInputDiv = styled.div`
+  margin-left: 250px;
+  display: flex;
+  align-items: center;
+  img {
+    margin-right: 8px;
+  }
+`
+
 const StyledInput = styled.input`
   width: 427px;
   height: 45px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #9B5400;
   border-radius: 10px;
-  background-color: #9B5400;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
   font-family: 'Maitree';
   font-size: 20px;
   padding-left: 10px;
@@ -14,8 +22,12 @@ const StyledInput = styled.input`
 `
 interface InputProps {
     onChange?: React.ChangeEventHandler<HTMLInputElement>
+    placeholder?: string
 }
 
-export const Input = ({onChange} : InputProps) => (
-    <StyledInput type="text" onChange={onChange}/>
+export const Input = ({onChange, placeholder} : InputProps) => (
+  <StyledInputDiv>
+    <img src="/searchcaramel.png" alt="" />
+    <StyledInput type="text" onChange={onChange} placeholder={placeholder}/>
+  </StyledInputDiv>
 )

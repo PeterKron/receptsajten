@@ -1,4 +1,3 @@
-
 import { useState, useEffect} from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import { useParams, Link } from "react-router-dom"
@@ -21,7 +20,7 @@ export default function Categories() {
   }, [params.categoryname, RecipesInCategory])
 
   return <div>
-    <Input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
+    <Input placeholder={`Sök recept i kategorin ${params.categoryname}`} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
     <ul>
       {RecipesInCategory.map((recipe: RecipeType, index) => 
       <Link to={`/recipe/${recipe._id}`}>
