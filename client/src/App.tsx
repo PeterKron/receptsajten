@@ -10,7 +10,7 @@ const App = () => {
       
       <header>
         <Link to="/" className='cake'>
-          <img src="./cake.png" alt="animatedcake" />
+          <img src="/cake.png" alt="animatedcake" />
         </Link>
         <div className='welcome'>
           <h2>Välkommen till Sötsuget.nu</h2>
@@ -25,9 +25,7 @@ const App = () => {
       
       <div className='wrapper'>
       <Outlet />
-        <Category/>
-
-      {/* </Outlet> */}
+      <Category/>
       </div>
     </div>
   );

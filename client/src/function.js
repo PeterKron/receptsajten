@@ -28,3 +28,17 @@ function containsElement(arr) {
     )
     return ArrayofAmounts
 }
+
+
+export function getRating(ratings) {
+    let sum = 0;
+    ratings.map((rate) => (sum += rate));
+    return (sum / ratings.length).toFixed(1);
+}
+
+
+// function getRating(ratings : Array<number>) {
+//     let sum = 0;
+//     ratings.map((rate: number) => (sum += rate));
+//     return (sum / ratings.length).toFixed(1);
+// }

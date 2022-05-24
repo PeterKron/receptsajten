@@ -2,9 +2,10 @@
 import { useState, useEffect} from "react"
 import {RecipeType} from '../interfaces/interfaces'
 import { useParams, Link } from "react-router-dom"
-import { StyledRecipes } from "../components/RecipeList"
+import { StyledRecipes } from "../Styles/RecipeListStyle"
 import { getRecipesByCategory, searchRecipeInOneCategory } from "../api/Categories"
 import { Input } from "../components/Input"
+import { getRating } from "../function"
 
 export default function Categories() {
   let params = useParams()
@@ -20,8 +21,7 @@ export default function Categories() {
   }, [params.categoryname, RecipesInCategory])
 
   return <div>
-    <Input onChange={(event: any) => setSearch(event.target.value)}/>
-  
+    <Input onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
     <ul>
       {RecipesInCategory.map((recipe: RecipeType, index) => 
       <Link to={`/recipe/${recipe._id}`}>
@@ -46,10 +46,4 @@ export default function Categories() {
     )}
     </ul>
   </div>
-}
-
-  function getRating(ratings : Array<number>) {
-    let sum = 0;
-    ratings.map((rate: number) => (sum += rate));
-    return (sum / ratings.length).toFixed(1);
 }

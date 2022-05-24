@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { useState, useEffect } from "react"
+import { useParams, Link, NavLink } from "react-router-dom"
 import {ContainsElement2} from '../function'
 import { getCategories } from '../api/Categories'
-import { Link } from 'react-router-dom'
 
 
 export const StyledCategory = styled.div`
@@ -16,6 +16,9 @@ export const StyledCategory = styled.div`
     color: #FFFFFF;
     font-family: 'Maitree';
     font-size: 32px;
+    .active {
+        font-style: italic;
+    }
 `
 
 export const Category = () => {
@@ -25,13 +28,15 @@ export const Category = () => {
     }, [])
 
     const newArray = ContainsElement2(allCategories)
-        
+
     return <StyledCategory>
         <ul> 
-            {newArray.map((category: any, index: any) => 
-            <Link to={`/category/${category.name}`} key={category.name}>
-                <li key={index}>{category.name} ({category.amount})</li>
-            </Link>)}
+            {newArray.map((category: any, index: number) => 
+            <NavLink to={`/category/${category.name}`} key={index} style={(isActive) => ({color: isActive ? '#FFFFF' : '#1c115c'})}>
+                <li>
+                    {category.name} ({category.amount})
+                </li>
+            </NavLink>)}
         </ul>
     </StyledCategory>
 }

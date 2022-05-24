@@ -4,23 +4,24 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Categories from './routes/RecipesInCategory';
-import { RecipeList } from './components/RecipeList';
-import { SingleRecipe } from './components/SingleRecipe';
+import Categories from './views/RecipesInCategory';
+import { RecipeList } from './views/RecipeList';
+import { SingleRecipe } from './views/SingleRecipe';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+let lets = 9
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}>
-          <Route path='/' element={<RecipeList/>}/>
-          {/* <Route path='recipe/search/:search' element={<RecipeList/>}/> */}
+          <Route path='/' element={<RecipeList texts={lets}/>}/>
           <Route path='recipe/:recipeId' element={<SingleRecipe/>}/> 
           <Route path='category/:categoryname' element={<Categories/>}/> 
-          {/* <Route path='category/:categoryname/:search' element={<Categories/>}/>  */}
         </Route> 
        </Routes> 
     </BrowserRouter> 
