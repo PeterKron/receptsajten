@@ -17,7 +17,7 @@ export const RecipeList = () => {
             getRecipes().then(recipes => {setRecipes(recipes)})
         }
     }, [allRecipes])
-    
+
     return <div>
     <Input placeholder={`Sök recept`} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
     <ul>

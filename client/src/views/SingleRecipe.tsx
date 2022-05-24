@@ -34,7 +34,6 @@ export const SingleRecipe = () => {
       
     }, [params.recipeId])
 
-
     return  <section> 
     {oneRecipe.map((recipe: RecipeType, index: number) => 
     <StyledRecipe key={index}>
@@ -69,4 +68,3 @@ export const SingleRecipe = () => {
     </StyledRecipe>)} 
 </section>
 }
-        
