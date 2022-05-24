@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { useState, useEffect } from "react"
 import { useParams, Link, NavLink } from "react-router-dom"
-import {ContainsElement2} from '../function'
+import { ContainsElement2 } from '../function'
 import { getCategories } from '../api/Categories'
-
+import { CategoryType } from '../interfaces/interfaces'
 
 export const StyledCategory = styled.div`
     background-color: #9B5400;
@@ -22,6 +22,7 @@ export const StyledCategory = styled.div`
     }
 `
 
+
 export const Category = () => {
     const [ allCategories, setCategories] = useState([])
     useEffect(()=>{
@@ -32,7 +33,7 @@ export const Category = () => {
 
     return <StyledCategory>
         <ul> 
-            {newArray.map((category: any, index: number) => 
+            {newArray.map((category: CategoryType, index: number) => 
             <NavLink to={`/category/${category.name}`} key={index} style={(isActive) => ({color: isActive ? '#FFFFF' : '#1c115c'})}>
                 <li>
                     {category.name} ({category.amount})

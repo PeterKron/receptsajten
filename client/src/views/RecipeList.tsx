@@ -7,7 +7,7 @@ import { getRating } from "../function"
 import { Input } from "../components/Input"
 
 
-export const RecipeList = (texts: any) => {
+export const RecipeList = () => {
     const [ search, setSearch] = useState('')
     const [ allRecipes, setRecipes] = useState<RecipeType[]>([])
     useEffect(()=>{

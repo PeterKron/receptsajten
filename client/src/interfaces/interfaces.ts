@@ -25,3 +25,8 @@ export interface CommentType {
     name: String,
     createdAt?: Date
 }
+
+export interface CategoryType{
+    name: string,
+    amount: number
+}

@@ -12,14 +12,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-let lets = 9
 
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App/>}>
-          <Route path='/' element={<RecipeList texts={lets}/>}/>
+          <Route path='/' element={<RecipeList/>}/>
           <Route path='recipe/:recipeId' element={<SingleRecipe/>}/> 
           <Route path='category/:categoryname' element={<Categories/>}/> 
         </Route> 
