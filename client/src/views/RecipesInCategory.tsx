@@ -16,7 +16,7 @@ export default function Categories() {
     }else {
       getRecipesByCategory(`${params.categoryname}`).then(recipes => {setRecipesInCategory(recipes)})
     } 
-  }, [params.categoryname, RecipesInCategory])
+  }, [params.categoryname, search])
 
   return <div>
     <Input placeholder={`Sök recept i kategorin ${params.categoryname}`} onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}/>
